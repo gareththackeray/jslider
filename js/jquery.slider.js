@@ -160,7 +160,8 @@
       round: 0,
       format: { format: "#,##0.##" },
       value: "5;7",
-      dimension: ""
+      dimension: "",
+	  dimensionbefore: ""	  
     },
     
     className: "jslider",
@@ -178,10 +179,10 @@
           '<div class="<%=className%>-pointer <%=className%>-pointer-to"></div>' +
         
           '<div class="<%=className%>-label"><span><%=settings.from%></span></div>' +
-          '<div class="<%=className%>-label <%=className%>-label-to"><span><%=settings.to%></span><%=settings.dimension%></div>' +
+          '<div class="<%=className%>-label <%=className%>-label-to"><span><%= settings.dimensionbefore %><%=settings.to%><%=settings.dimension%></span></div>' +
 
-          '<div class="<%=className%>-value"><span></span><%=settings.dimension%></div>' +
-          '<div class="<%=className%>-value <%=className%>-value-to"><span></span><%=settings.dimension%></div>' +
+          '<div class="<%=className%>-value"><%=settings.dimensionbefore%><span></span><%=settings.dimension%></div>' +
+          '<div class="<%=className%>-value <%=className%>-value-to"><%=settings.dimensionbefore%><span></span><%=settings.dimension%></div>' +
           
           '<div class="<%=className%>-scale"><%=scale%></div>'+
 
@@ -230,7 +231,8 @@
       settings: {
         from: this.nice( this.settings.from ),
         to: this.nice( this.settings.to ),
-        dimension: this.settings.dimension
+        dimension: this.settings.dimension,
+		dimensionbefore: this.settings.dimensionbefore
       },
       scale: this.generateScale()
     }) );
